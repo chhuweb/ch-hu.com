@@ -1,0 +1,27 @@
+# Setup your ENV environment
+
+#
+# install djangoBB
+# git clone https://github.com/slav0nic/DjangoBB.git
+# sudo python setup install
+
+# install other package
+Django==1.7.0
+mysql-python==1.2.5
+django-allauth==0.19.1
+django-messages==0.5.1
+Whoosh==2.7.0
+django-nocaptcha-recaptcha==0.0.18
+
+
+# Run:
+# ./manage.py migrate
+# ./manage.py syncdb
+# ./manage.py collectstatic
+# ./manage.py runserver
+
+
+# Error:
+# django.db.utils.OperationalError: (1071, 'Specified key was too long; max key length is 767 bytes')
+# /Users/Bella/Documents/workspace/chhu_ENV/lib/python2.7/site-packages/allauth/socialaccount/models.py line88, max_length=190
+
