@@ -20,6 +20,7 @@ DATABASES = {
         'PASSWORD': 'work',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'OPTIONS': {'charset': 'utf8mb4'},
     }
 }
 
@@ -225,6 +226,9 @@ try:
     EMAIL_BACKEND = "mailer.backend.DbBackend"
 except ImportError:
     pass
+
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = '25'
 
 try:
     import south
