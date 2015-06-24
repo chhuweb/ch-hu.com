@@ -178,15 +178,12 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.openid',
-    'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.twitter',
-
 
     'pagination',
     'haystack',
     'django_messages',
-    'nocaptcha_recaptcha',
+    #'nocaptcha_recaptcha',
 
     'djangobb_forum',
 )
@@ -227,8 +224,12 @@ try:
 except ImportError:
     pass
 
-# EMAIL_HOST = 'localhost'
+EMAIL_HOST = 'smtp.sina.com'
 # EMAIL_PORT = '25'
+EMAIL_HOST_USER = 'sample@sina.com'
+EMAIL_HOST_PASSWORD = 'sample'
+DEFAULT_FROM_EMAIL = 'sample@sina.com'
+
 
 try:
     import south
@@ -265,6 +266,7 @@ CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_SIGNUP_FORM_CLASS = 'forms.SignupForm'
+SOCIALACCOUNT_EMAIL_VERIFICATION = "none"
 
 try:
     from local_settings import *
