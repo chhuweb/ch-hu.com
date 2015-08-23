@@ -22,44 +22,49 @@ sudo vim mysql/my.cnf
 1. Setup your ENV environment
 =============================
 
-cd ~/workspace
-virtualenv chhu_ENV
-source chhu_ENV/bin/activate
+    cd ~/workspace
+    virtualenv chhu_ENV
+    source chhu_ENV/bin/activate
+
 
 2. Download chhu project
 ========================
 
-git clone https://github.com/zonesan/ch-hu.com.git
-cd ch-hu.com/chhu_web
+    git clone https://github.com/zonesan/ch-hu.com.git
+    cd ch-hu.com/chhu_web
+
 
 3. install python packages
 ==========================
 
-sudo ~/workspace/chhu_ENV/bin/pip install -r requirements.txt
+    sudo ~/workspace/chhu_ENV/bin/pip install -r requirements.txt
 
 
 4. Setup chhu_web database
 ==========================
 
-# create local DB: schema 'chhu_web'
-# # CREATE SCHEMA `chhu_web` DEFAULT CHARACTER SET utf8mb4 ;
-# create DBA : username 'work', password 'work'
-# grant all 'chhu_web' privileges to work user.
+    # create local DB: schema 'chhu_web'
+    mysql> CREATE SCHEMA `chhu_web` DEFAULT CHARACTER SET utf8mb4 ;
+    # create DBA : username 'work', password 'work'
+    # grant all 'chhu_web' privileges to work user.
+
 
 4.1 update allauth code
 =======================
 
-sudo vim ~/workspace/chhu_ENV/lib/python2.7/site-packages/allauth/socialaccount/models.py
-# # line88, change max_length to 190
-sudo rm ~/workspace/chhu_ENV/lib/python2.7/site-packages/allauth/socialaccount/models.pyc
+    # for utf8mb4
+    sudo vim ~/workspace/chhu_ENV/lib/python2.7/site-packages/allauth/socialaccount/models.py
+    # # line88, change max_length to 190
+    sudo rm ~/workspace/chhu_ENV/lib/python2.7/site-packages/allauth/socialaccount/models.pyc
+
 
 5. Setup tables
 ===============
 
-./manage.py migrate
-./manage.py syncdb
-./manage.py collectstatic
-./manage.py runserver
+    ./manage.py migrate
+    ./manage.py syncdb
+    ./manage.py collectstatic
+    ./manage.py runserver
 
 6. Visit
-http://127.0.0.1:8000/forum/
+    http://127.0.0.1:8000/forum/
