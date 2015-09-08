@@ -9,4 +9,4 @@
 *.json
 *.log
 .DS_Store
-
+migrations/

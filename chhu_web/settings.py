@@ -181,6 +181,7 @@ INSTALLED_APPS = (
     #'nocaptcha_recaptcha',
 
     'djangobb_forum',
+    'website',
 )
 
 # A sample logging configuration. The only tangible logging

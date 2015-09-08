@@ -22,6 +22,9 @@ urlpatterns = patterns('',
     # Apps
     url(r'^forum/account/', include('allauth.urls')),
     url(r'^forum/', include('djangobb_forum.urls', namespace='djangobb')),
+
+    # Website
+    url(r'^$', include('website.urls')),
 )
 
 # PM Extension
