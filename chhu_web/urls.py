@@ -13,6 +13,13 @@ sitemaps = {
 }
 
 urlpatterns = patterns('',
+    # Website
+    url(r'^$', include('website.urls')),
+    url(r'^price/', 'website.views.price_view'),
+    url(r'^about/', 'website.views.about_view'),
+    url(r'^contact/', 'website.views.contact_view'),
+    url(r'^services/', 'website.views.services_view'),
+
     # Admin
     url(r'^admin/', include(admin.site.urls)),
 
@@ -23,8 +30,6 @@ urlpatterns = patterns('',
     url(r'^forum/account/', include('allauth.urls')),
     url(r'^forum/', include('djangobb_forum.urls', namespace='djangobb')),
 
-    # Website
-    url(r'^$', include('website.urls')),
 )
 
 # PM Extension
